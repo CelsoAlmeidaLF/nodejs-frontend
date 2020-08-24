@@ -12,9 +12,15 @@ app.set('view engine','handlebars')
 app.use(express.static(path.join(__dirname,'../public')))
 
 // rotas
-app.get('/',(red, res) => { res.sendFile(
-    path.join(__dirname,'../pages/index.html'))
-})
+// app.get('/',(red, res) => { res.sendFile(
+//     path.join(__dirname,'../pages/index.html'))
+// })
+
+app.get('/', (req, res) => { res.render('home/index')})
+app.get('/about', (req, res) => { res.render('home/about')})
+app.get('/contact', (req, res) => { res.render('home/contact')})
+app.get('/journal', (req, res) => { res.render('home/journal')})
+app.get('/work', (req, res) => { res.render('home/work')})
 
 // outros
 app.listen(port, () => { console.log(`server runnin is http://localhost:${port}`) })
